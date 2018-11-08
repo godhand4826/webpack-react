@@ -3,7 +3,10 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-        index: path.resolve(__dirname, 'src/index.js')
+        index: path.resolve(__dirname, 'src/index.js'),
+        bootstrapJs: "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+        bootstrapCss: "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+        jquery: "./node_modules/jquery/dist/jquery.min.js"
     },
     output: {
         path: path.resolve(__dirname, 'dist')
@@ -13,15 +16,15 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader'
-                }
+                use: 'babel-loader'
             },
             {
                 test: /\.html$/,
-                use: {
-                    loader: 'html-loader'
-                }
+                use: 'html-loader'
+            },
+            {
+                test: /\.css$/,
+                use: 'css-loader'
             }
         ]
     },
