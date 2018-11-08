@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --open --mode development",
     "build": "webpack --mode production",
+    "rebuild": "npm run clean && npm run build",
     "clean": "rm dist -rf",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
